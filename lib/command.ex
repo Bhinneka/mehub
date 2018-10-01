@@ -29,7 +29,7 @@ defmodule Mehub.Command do
     case User.get_orgs(username) |> process_body do
       {:ok, data} ->
         IO.puts "#{username}'s Organization :"
-        Enum.map(data, fn v -> IO.puts "* #{Map.get(v, "login")}" end)
+        Enum.each(data, fn v -> IO.puts "* #{Map.get(v, "login")}" end)
       :error ->
         IO.puts "User not found"
     end
@@ -39,7 +39,7 @@ defmodule Mehub.Command do
     case User.get_repos(username) |> process_body do
       {:ok, data} ->
         IO.puts "#{username}'s Repositories :"
-        Enum.map(data, fn v -> IO.puts "* #{Map.get(v, "name")}" end)
+        Enum.each(data, fn v -> IO.puts "* #{Map.get(v, "name")}" end)
       :error ->
         IO.puts "User not found"
     end
@@ -49,7 +49,7 @@ defmodule Mehub.Command do
     case User.get_followers(username) |> process_body do
       {:ok, data} ->
         IO.puts "#{username}'s Followers :"
-        Enum.map(data, fn v -> IO.puts "* #{Map.get(v, "login")}" end)
+        Enum.each(data, fn v -> IO.puts "* #{Map.get(v, "login")}" end)
       :error ->
         IO.puts "User not found"
     end
