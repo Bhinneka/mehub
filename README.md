@@ -15,6 +15,12 @@ Make sure Elixir is installed on your computer https://elixir-lang.org/install.h
 $ make install
 ```
 
+### Testing
+
+```shell
+$ make tests
+```
+
 ### Usage
 
 `./mehub -u 'github_username'`
