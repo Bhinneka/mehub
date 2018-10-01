@@ -20,7 +20,7 @@ defmodule Mehub.Command do
         IO.puts "* Bio : #{Map.get(data, "bio")}"
         IO.puts "* Location : #{Map.get(data, "location")}"
         IO.puts "* Company : #{Map.get(data, "company")}"
-      {:error, _} ->
+      :error ->
         IO.puts "User not found"
     end
   end
@@ -30,7 +30,7 @@ defmodule Mehub.Command do
       {:ok, data} ->
         IO.puts "#{username}'s Organization :"
         Enum.map(data, fn v -> IO.puts "* #{Map.get(v, "login")}" end)
-      {:error, _} ->
+      :error ->
         IO.puts "User not found"
     end
   end
@@ -40,7 +40,7 @@ defmodule Mehub.Command do
       {:ok, data} ->
         IO.puts "#{username}'s Repositories :"
         Enum.map(data, fn v -> IO.puts "* #{Map.get(v, "name")}" end)
-      {:error, _} ->
+      :error ->
         IO.puts "User not found"
     end
   end
@@ -50,7 +50,7 @@ defmodule Mehub.Command do
       {:ok, data} ->
         IO.puts "#{username}'s Followers :"
         Enum.map(data, fn v -> IO.puts "* #{Map.get(v, "login")}" end)
-      {:error, _} ->
+      :error ->
         IO.puts "User not found"
     end
   end
@@ -61,7 +61,7 @@ defmodule Mehub.Command do
 
   defp process_body({:ok, contents}), do: Map.fetch(contents, :body)
 
-  defp process_body({:error, reason}), do: {:error, reason}
+  defp process_body({:error, _reason}), do: :error
 
   defp print_help do
     IO.puts "Usage :"
