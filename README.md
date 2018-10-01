@@ -10,6 +10,10 @@ a Command line app for showing Github User's Information
 Make sure Elixir is installed on your computer https://elixir-lang.org/install.html
 
 - Clone mehub
+```shell
+$ git clone https://github.com/Bhinneka/mehub.git
+```
+
 - Build mehub
 ```shell
 $ make install
