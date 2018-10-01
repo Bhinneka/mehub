@@ -9,14 +9,10 @@ defmodule Mehub.GithubClient do
   end
 
   # custom method to invoke get
-  def make_request(:get, url) do
-    get(url, headers())
-  end
+  def make_request(:get, url), do: get(url, headers())
 
   # Example of a POST
-  # def make_request(:post, url, body) do
-  #   post!(url, body, headers)
-  # end
+  # def make_request(:post, url, body), do: post!(url, body, headers)
 
   # HTTPosion Hooks
 
@@ -25,8 +21,6 @@ defmodule Mehub.GithubClient do
   def process_url(path), do: "https://api.github.com/" <> path
 
   # implement process response body
-  def process_response_body(body) do
-    body |> Poison.decode!
-  end
+  def process_response_body(body), do: body |> Poison.decode!
 
 end
