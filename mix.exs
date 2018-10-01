@@ -8,7 +8,9 @@ defmodule Mehub.MixProject do
       elixir: "~> 1.6",
       escript: escript(),
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      desciption: description(),
+      package: package(),
     ]
   end
 
@@ -29,5 +31,20 @@ defmodule Mehub.MixProject do
       {:httpoison, "~> 1.0"},
       {:poison, "~> 3.1"}
     ]
+  end
+
+  defp description do
+    """
+    a Command line app for showing Github User's Information
+    """
+  end
+
+  defp package do
+    [files: ["lib", "config", "mix.exs", "README.md", "LICENSE"],
+     maintainers: ["Wuriyanto"],
+     licenses: ["MIT"],
+     links: %{
+       "github" => "https://github.com/Bhinneka/mehub"
+     }]
   end
 end
