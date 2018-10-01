@@ -11,7 +11,7 @@ defmodule Mehub.Command do
     options
   end
 
-  def process_args([username: username]) do
+  def execute([username: username]) do
     case User.get_user(username) |> process_body do
       {:ok, data} ->
         IO.puts "* Name : #{Map.get(data, "name")}"
@@ -25,7 +25,7 @@ defmodule Mehub.Command do
     end
   end
 
-  def process_args([username: username, orgs: true]) do
+  def execute([username: username, orgs: true]) do
     case User.get_orgs(username) |> process_body do
       {:ok, data} ->
         IO.puts "#{username}'s Organization :"
@@ -35,7 +35,7 @@ defmodule Mehub.Command do
     end
   end
 
-  def process_args([username: username, repos: true]) do
+  def execute([username: username, repos: true]) do
     case User.get_repos(username) |> process_body do
       {:ok, data} ->
         IO.puts "#{username}'s Repositories :"
@@ -45,7 +45,7 @@ defmodule Mehub.Command do
     end
   end
 
-  def process_args([username: username, followers: true]) do
+  def execute([username: username, followers: true]) do
     case User.get_followers(username) |> process_body do
       {:ok, data} ->
         IO.puts "#{username}'s Followers :"
@@ -55,13 +55,13 @@ defmodule Mehub.Command do
     end
   end
 
-  def process_args([help: true]), do: print_help()
+  def execute([help: true]), do: print_help()
 
-  def process_args(_), do: print_help()
+  def execute(_), do: print_help()
 
   defp process_body({:ok, contents}), do: Map.fetch(contents, :body)
 
-  defp process_body({:error, _reason}), do: :error
+  defp process_body({:error, reason}), do: reason
 
   defp print_help do
     IO.puts "Usage :"
