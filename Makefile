@@ -7,3 +7,6 @@ dep:
 
 build:
 	mix escript.build
+
+tests:
+	mix test
