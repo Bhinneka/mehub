@@ -11,7 +11,7 @@ otp_release:
   - 20.0
 
 install:
-  make dep
+  - make dep
 
 script:
-  make tests
+  - make tests
