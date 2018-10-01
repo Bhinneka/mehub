@@ -2,9 +2,6 @@
 
 a Command line app for showing Github User's Information
 
-### Todo
-- add testing
-
 ### Install
 
 Make sure Elixir is installed on your computer https://elixir-lang.org/install.html
